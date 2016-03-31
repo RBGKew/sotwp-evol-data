@@ -22,7 +22,7 @@ write.table(colSums(final_vasc != 0, na.rm=T),"final_vascular_only_colSums-nonze
 #### with new source data, plot the total nucleotide record counts
 totals=read.table("final_vascular_only_colSums.formatted.tdf",header=T,sep="\t")
 quartz()
-plot(totals$Year,log10(totals$All),xlab="year",sub="(zero years ommitted, including 1990 and earlier)",ylab="count of #total records (log10)",main="Embryophyta sequences in NBCI/EBI/DDBJ")
+plot(totals$Year,log10(totals$All),xlab="year",sub="(zero years ommitted, including 1990 and earlier)",ylab="count of #total records (log10)",main="Tracheoophyta sequences in NBCI/EBI/DDBJ")
 lines(totals$Year,log10(totals$All))
 points(totals$Year,log10(totals$rbcL),col="red")
 points(totals$Year,log10(totals$matK),col="blue")
@@ -39,7 +39,7 @@ legend(1985,5.5,"matK or rbcL",fill="green",lwd=2)
 #### with new source data, plot the number of species with >0 nucleotide record counts
 totals_counts=read.table("final_vascular_only_colSums-nonzero.formatted.tdf",header=T,sep="\t")
 quartz()
-plot(totals_counts$Year,log10(totals_counts$All),xlab="year",sub="(zero years ommitted, including 1990 and earlier)",ylab="count of #species with ≥1 sequence record (log10)",main="Embryophyta sequences in NBCI/EBI/DDBJ")
+plot(totals_counts$Year,log10(totals_counts$All),xlab="year",sub="(zero years ommitted, including 1990 and earlier)",ylab="count of #species with ≥1 sequence record (log10)",main="Tracheoophyta sequences in NBCI/EBI/DDBJ")
 lines(totals_counts$Year,log10(totals_counts$All))
 points(totals_counts$Year,log10(totals_counts$rbcL),col="red")
 points(totals_counts$Year,log10(totals_counts$matK),col="blue")
