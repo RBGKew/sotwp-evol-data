@@ -1,15 +1,8 @@
-# totals=read.table("Documents//all_work/collaborations//RBG-Kew/PAFTOL/gap_analyses_including_SOTWP/totals.tdf",header=T,sep="\t")
-# totals_nonzero=totals[totals$nuccore>0,]
-# plot(totals_nonzero$pyear,log10(totals_nonzero$nuccore),xlab="year",sub="(zero years ommitted, including 1990 and earlier)",ylab="count of #species (log10)",main="Embryophyta sequences in NBCI/EBI/DDBJ",ylim=c(0,5))
-# lines(totals_nonzero$pyear,log10(totals_nonzero$nuccore))
-# points(totals_nonzero$pyear,log10(totals_nonzero$rbcL),col="red")
-# lines(totals_nonzero$pyear,log10(totals_nonzero$rbcL),col="red",lty=3)
-# points(totals_nonzero$pyear,log10(totals_nonzero$matK),col="blue")
-# lines(totals_nonzero$pyear,log10(totals_nonzero$matK),col="blue",lty=3)
-# legend(1990,5,"any sequence",fill="black",lwd=2)
-# legend(1990,4.5,"rbcL gene",fill="red",lwd=2)
-# legend(1990,4,"matK gene",fill="blue",lwd=2)
-#
+# Get the list of vascular only taxa
+vascular_tax=entrez_search(db="taxonomy",term="(tracheophyta[Subtree]) AND \"species\"[Rank]",retmax=150000)
+
+# Compare the vascular-only list to the final data to include only vascular plants
+final_vasc=final[is.element(final$some_id,vasc),]
 
 #### generate the (rbcL || matK) data:
 for (i in 1:30){
